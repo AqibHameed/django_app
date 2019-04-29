@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from webapp import views
+from webapp.views import MyView, MyFormView, BlogList, BlogName
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +25,9 @@ urlpatterns = [
     path('form/', views.index_form),
     path('scookie',views.setcookie),
     path('gcookie', views.getcookie),
-    path('bootstrap_form',  views.bootstrap_form)
+    path('bootstrap_form',  views.bootstrap_form),
+    path('about/', MyView.as_view()),
+    path('myform/', MyFormView.as_view()),
+    path('blog/', BlogList.as_view()),
+    path('blog_name', BlogName.as_view())
 ]
